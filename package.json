@@ -1,0 +1,97 @@
+{
+  "name": "llm-steg",
+  "version": "1.0.0",
+  "description": "Transport-agnostic steganography for LLM streams. Hide data in cover media across any transport: WebSocket, WebRTC, RTP, UDP, and more.",
+  "keywords": [
+    "steganography",
+    "llm",
+    "streaming",
+    "rtp",
+    "webrtc",
+    "websocket",
+    "t140",
+    "covert-channel",
+    "lsb"
+  ],
+  "homepage": "https://github.com/agrathwohl/llm-steg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agrathwohl/llm-steg.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "agrathwohl",
+    "email": "andrew@grathwohl.me"
+  },
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./adapters": {
+      "types": "./dist/adapters/index.d.ts",
+      "import": "./dist/adapters/index.mjs",
+      "require": "./dist/adapters/index.js"
+    },
+    "./algorithms": {
+      "types": "./dist/algorithms/index.d.ts",
+      "import": "./dist/algorithms/index.mjs",
+      "require": "./dist/algorithms/index.js"
+    },
+    "./llm": {
+      "types": "./dist/llm/index.d.ts",
+      "import": "./dist/llm/index.mjs",
+      "require": "./dist/llm/index.js"
+    }
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.mjs",
+    "dist/**/*.d.ts",
+    "dist/**/*.map"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.prod.json",
+    "clean": "rm -rf dist/ .*cache *.log",
+    "lint": "tslint --project tsconfig.json --format stylish 'src/**/*.ts'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "demo": "npx ts-node examples/demo.ts",
+    "prepublishOnly": "npm run lint && npm run build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.0.0",
+    "@types/ws": "^8.5.10",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.2",
+    "tslint": "^6.1.0",
+    "typescript": "^5.3.0"
+  },
+  "peerDependencies": {
+    "werift-rtp": "^0.8.0",
+    "ws": "^8.0.0"
+  },
+  "peerDependenciesMeta": {
+    "werift-rtp": {
+      "optional": true
+    },
+    "ws": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
