@@ -1,22 +1,31 @@
-# llm-steg
+# @agrathwohl/llm-steg
 
 > Transport-agnostic steganography for LLM streams. Hide data in plain sight within AI-generated text.
 
-[![npm version](https://img.shields.io/npm/v/llm-steg.svg)](https://www.npmjs.com/package/llm-steg)
+[![npm version](https://img.shields.io/github/package-json/v/agrathwohl/llm-steg)](https://github.com/agrathwohl/llm-steg/packages)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
 
-- **🎭 Multi-Provider LLM Support** - OpenAI, Anthropic, Mistral, Cohere, Google, Ollama
-- **📡 Transport Agnostic** - Works with UDP, WebSocket, WebRTC, RTP, or any custom transport
-- **🔧 Pluggable Algorithms** - LSB steganography included, extensible for custom algorithms
-- **⚡ High Performance** - Minimal overhead, suitable for real-time streaming
-- **🧪 Fully Tested** - Comprehensive test suite with integration tests
+- **Multi-Provider LLM Support** - OpenAI, Anthropic, Mistral, Cohere, Google, Ollama
+- **Transport Agnostic** - Works with UDP, WebSocket, WebRTC, RTP, or any custom transport
+- **Pluggable Algorithms** - LSB steganography included, extensible for custom algorithms
+- **High Performance** - Minimal overhead, suitable for real-time streaming
+- **Fully Tested** - Comprehensive test suite with integration tests
 
 ## Installation
 
+This package is published to GitHub Packages. Configure npm to use the GitHub registry for the `@agrathwohl` scope:
+
 ```bash
-npm install llm-steg
+# Create or edit ~/.npmrc
+echo "@agrathwohl:registry=https://npm.pkg.github.com" >> ~/.npmrc
+
+# Authenticate with GitHub (use a personal access token with read:packages scope)
+npm login --scope=@agrathwohl --registry=https://npm.pkg.github.com
+
+# Install the package
+npm install @agrathwohl/llm-steg
 ```
 
 ## Quick Start
@@ -29,7 +38,7 @@ import {
   LSBAlgorithm,
   MemoryAdapter,
   CoverGenerator
-} from 'llm-steg';
+} from '@agrathwohl/llm-steg';
 
 // 1. Create steganography engine
 const engine = new StegEngine({});
@@ -55,7 +64,7 @@ console.log('Extracted:', decoded.data.toString());
 Normalize streaming responses from any LLM provider:
 
 ```typescript
-import { StreamNormalizer } from 'llm-steg';
+import { StreamNormalizer } from '@agrathwohl/llm-steg';
 
 // Works with OpenAI, Anthropic, Google, Mistral, Cohere, Ollama
 const normalizer = new StreamNormalizer({ provider: 'openai' });
@@ -81,7 +90,7 @@ normalizer.complete();
 Use any transport with steganography:
 
 ```typescript
-import { StegTransport, UdpAdapter } from 'llm-steg';
+import { StegTransport, UdpAdapter } from '@agrathwohl/llm-steg';
 
 // UDP transport
 const udp = new UdpAdapter({
@@ -100,12 +109,30 @@ transport.onData((data) => {
 });
 ```
 
+## Submodule Imports
+
+Import only what you need:
+
+```typescript
+// Main exports
+import { StegEngine, StegTransport } from '@agrathwohl/llm-steg';
+
+// Transport adapters only
+import { UdpAdapter, MemoryAdapter } from '@agrathwohl/llm-steg/adapters';
+
+// Algorithms only
+import { LSBAlgorithm } from '@agrathwohl/llm-steg/algorithms';
+
+// LLM stream utilities only
+import { StreamNormalizer } from '@agrathwohl/llm-steg/llm';
+```
+
 ## Cover Media Generation
 
 Generate various types of cover media:
 
 ```typescript
-import { CoverGenerator } from 'llm-steg';
+import { CoverGenerator } from '@agrathwohl/llm-steg';
 
 const generator = new CoverGenerator();
 

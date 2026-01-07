@@ -1,11 +1,11 @@
 /**
- * llm-steg - Transport-Agnostic Steganography for LLM Streams
+ * @agrathwohl/llm-steg - Transport-Agnostic Steganography for LLM Streams
  *
  * Hide data within AI-generated text streams with first-class support
  * for OpenAI, Anthropic, Mistral, Cohere, Google, and Ollama.
  *
  * @packageDocumentation
- * @module llm-steg
+ * @module @agrathwohl/llm-steg
  *
  * @example
  * ```typescript
@@ -16,7 +16,7 @@
  *   LSBAlgorithm,
  *   UdpAdapter,
  *   MemoryAdapter
- * } from 'llm-steg';
+ * } from '@agrathwohl/llm-steg';
  *
  * // Create steganography engine
  * const engine = new StegEngine({ debug: true });

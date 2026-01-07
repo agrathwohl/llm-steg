@@ -17,7 +17,7 @@ import { StegEngine } from './steg-engine';
  *
  * @example
  * ```typescript
- * import { StegTransport, UdpAdapter, LSBAlgorithm } from 'llm-steg';
+ * import { StegTransport, UdpAdapter, LSBAlgorithm } from '@agrathwohl/llm-steg';
  *
  * const udp = new UdpAdapter('192.168.1.100', 5004);
  * const steg = new StegTransport(udp, {

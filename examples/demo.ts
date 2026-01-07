@@ -1,6 +1,6 @@
 #!/usr/bin/env npx ts-node
 /**
- * llm-steg Terminal Demo
+ * @agrathwohl/llm-steg Terminal Demo
  *
  * A visually stunning demonstration of steganography hidden within
  * simulated LLM streaming responses.
@@ -956,7 +956,7 @@ async function main(): Promise<void> {
 
   printBox(
     [
-      c("brightCyan", "🎭 llm-steg - Steganography for the AI Age"),
+      c("brightCyan", "🎭 @agrathwohl/llm-steg - Steganography for the AI Age"),
       "",
       "Features demonstrated:",
       `  ${c("green", "✓")} LSB steganography encoding/decoding`,
