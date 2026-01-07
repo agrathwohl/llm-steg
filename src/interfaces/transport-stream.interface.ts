@@ -1,5 +1,5 @@
 /**
- * Transport protocol types supported by llm-steg
+ * Transport protocol types supported by @agrathwohl/llm-steg
  */
 export type TransportProtocol =
   | 'udp'
