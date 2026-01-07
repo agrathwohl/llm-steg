@@ -1,6 +1,6 @@
 {
   "name": "@agrathwohl/llm-steg",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Transport-agnostic steganography for LLM streams. Hide data in cover media across any transport: WebSocket, WebRTC, RTP, UDP, and more.",
   "keywords": [
     "steganography",
